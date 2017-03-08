@@ -4,41 +4,38 @@
 
 <html>
 
-    <!--Configurer la page -->
-    <head> 
-        <!-- Afficher les caractères spéciaux -->
-        <meta charset="UTF8">
+        <!--Configurer la page -->
+        <head> 
+            <!-- Afficher les caractères spéciaux -->
+            <meta charset="UTF8">
 
-        <!-- Donner un titre à la page -->
-        <title>Exo 1 Ajouter du style dans le HTML - 8 Mars</title>
+            <!-- Donner un titre à la page -->
+            <title>Exo 2 Intégrer un fichier CSS - 8 Mars</title>
 
-        <!-- Ajouter du style dans la balise head -->
-        <style>
+            <!-- Intégrer la feuille de style CSS -->
+            <link rel="stylesheet" href="css/style.css">
 
-            h2{
-                color:green;
-            }
-        </style>
-    </head>
+        </head>
 
 
     <!-- Ajouter du contenu à la page -->
-    <body>
-            
+    <body>     
+        
+        
         <!-- Ouverture de la page -->
         <header> 
 
-            <h1>Julien Noyer Formateur Front End</h1>
+            <h1>Nour Rakotoson Etudiante développeuse</h1>
 
             <!--Navigation Principale -->
             <nav>
                 <ul>
                     <!-- Ajouter du CSS en ligne -->
-                    <li><a href="#" style="color:red" >Accueil</a></li>
-                    <li><a href="#" style="color:red" >A Propos</a></li>
-                    <li><a href="#" style="color:red" >Portofolio</a></li>
-                    <li><a href="#" style="color:red" >Contact</a></li>
-                    <li><a href="#" style="color:red" >Profil Github</a></li>                    
+                    <li><a href="#" >Accueil</a></li>
+                    <li><a href="#" >A Propos</a></li>
+                    <li><a href="#" >Portofolio</a></li>
+                    <li><a href="#" >Contact</a></li>
+                    <li><a href="#" >Profil Github</a></li>                    
                 </ul>
 
             </nav>
@@ -49,17 +46,17 @@
         <main>
 
             <!-- Créer une zone -->
-            <section>
-                <h2>A propos de Julien Noyer</h2>
+            <section class="redBackground">
+                <h2 id="bigTitle">A propos de <b> Nour Rakotoson</b></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui nulla delectus architecto cum, amet vero nihil, fuga. Quam maiores laborum commodi voluptatem amet facere voluptates obcaecati odio, perspiciatis. Doloremque, dolorum.</p>
             </section>
 
             <!-- Créer une zone -->
             <section>
-                <h2>Portofolio de Julien Noyer</h2>
+                <h2 id="portofolioTitle">Portofolio de <b>Nour Rakotoson</b></h2>
                 <p>Cliquez sur un des projets ci-dessus</p>
 
-                <!-- Créer une sous-section -->
+                <!-- Créer 3 sous-section -->
                 <article>
                     <h3>Projet 1</h3>
                     <p> Lorem ipsum dolor sit amet</p>    
@@ -80,17 +77,18 @@
 
             <!-- Créer une zone -->
             <section>
-                <h2>Contacter Julien Noyer</h2>
+                <h2>Contacter <b>Nour Rakotoson</b> </h2>
                 <p>Vous pouvez envoyer un email en cliquant sur cette adresse:
-                     <a href="#">j.noyer@digitalworkshop.fr</a></p>
+                     <a href="#">nour.rakotoson@gmail.com</a></p>
             </section>
 
         </main>
 
         <!-- Fermeture de la page -->
-        <footer> 
+        <footer class="redBackground" > 
             <p>Under MIT Licence</p>
         </footer>
 
     </body>
+
 </html>
