@@ -1,0 +1,73 @@
+/*
+Style Reset
+*/
+    /* Supprimer toutes les marges */
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Faire en sorte que 1rem soit égal à 10px */
+    html{
+        font-size: 62.5%;
+    }
+
+    body{
+        font-size: 1.5rem; /* => 15 px */
+
+        /* Changer la famille de caractères */
+        font-family: "Arial", sans-serif; 
+    }
+
+    /* Supprimer la décoration des balises a */
+    a{
+        text-decoration: none;
+    }
+
+    /* Faire en sorte que les images ne dépassent pas leur parent */
+    img{
+        max-width: 100%;
+    }
+
+/* 
+Style header
+ */
+    header{
+
+        /* Aligner le texte au centre */
+        text-align: center;
+
+        /* Modifier la couleur de la font */
+        color: white;
+
+        /* Ajouter une couleur de fond */
+        background: #18bc9c;
+    }
+
+    nav{
+
+        /* Mettre le texte en majuscules */
+        text-transform: uppercase;
+
+         /* Aligner le texte à gauche */
+         text-align: left;
+
+        /* Ajouter une couleur de fond */
+        background: #2c3e50;
+    }
+
+    nav a{
+        /* Modifier la couleur du texte */
+        color: white;
+
+        /* Passer le texte en gras */
+        font-weight: bold;
+    }
+
+    /* Aligner les balises li */
+    li{
+        display: inline-block;
+
+        /* Ajouter une marge à droite */
+        margin-right: 1rem;
+    }
