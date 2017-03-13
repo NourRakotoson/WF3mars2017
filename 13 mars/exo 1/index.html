@@ -1,0 +1,94 @@
+<!--
+
+    - Créer un document de base HTML5
+    - Créer une ouverture de page
+        - Un titre principal
+        - Une navigation principale avec 4 liens 
+            - Home 
+            - About
+            - Portfolio
+            - Facebook
+    - Créer une zone de contenu principal
+        - Une section
+            - Sous-titre "About"
+            - 1 image
+            - 1 paragraphe
+        - Une section
+            - Sous-titre "Contacts"
+            - Formulaire: nom/email/message
+    - Créer une fermeture de page
+        - Under MIT Licence
+
+ -->
+
+ <!DOCTYPE html>
+ <html lang="fr">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>13 Mars - Révisions</title>
+
+        <!-- Intégrer une feuille de style CSS-->
+        <link rel="stylesheet" href="CSS/style.css">
+
+    </head>
+
+
+ <body>
+
+    <!-- Ouverture de page -->
+     <header>
+         <h1>Hello World</h1>
+
+         <!-- Navigation principale-->
+         <nav>
+             <ul>
+                 <li><a href="#">Home</a></li>
+                 <li><a href="#">About</a></li>
+                 <li><a href="#">Portfolio</a></li>
+                 <li><a href="#" target="_blank">Facebook</a></li>                 
+             </ul>
+         </nav>
+     </header>
+
+     <!-- Contenu Principal -->
+     <main>
+            <section>
+                <h2>About</h2>
+                <img src="img/Profil.png" alt="Photo de profil">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor beatae quas, vel dolorem nesciunt expedita illum modi, asperiores praesentium magnam quo cupiditate distinctio ipsum nostrum. Quaerat distinctio eveniet sunt nesciunt.</p>
+            </section>
+
+            <section>
+                <h2>Contacts</h2>
+                <form action="#">
+                    <!--
+                        Pour associer un label à un input il faut utiliser l'id de l'input 
+                        dans l'attribut for du label 
+                    -->
+                    <label for="userName"></label>
+                    <input type="text" id="userName" placeholder="Min. 5 caractères">
+
+                    <label for="userEmail"></label>
+                    <input type="email" id="userEmail" placeholder="Adresse mail valide">
+
+                    <label for="userMessage">Message</label>
+                    <textarea id="userMessage" placeholder="Min. 5 caractères"></textarea>
+
+                    <!--
+                        Pour valider un formulaire il faut ajouter à la fin un input de type submit
+                    -->
+                    
+                    <input type="submit" value="Envoyer votre message">
+                </form>
+            </section>
+     </main>
+
+     <!-- Fermeture de la page -->
+     <footer>Under MIT Licence</footer>
+
+    </body>
+    
+ </html>
