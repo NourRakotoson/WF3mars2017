@@ -1,0 +1,273 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+
+/*
+Style Reset
+*/
+    /* Supprimer toutes les marges */
+    *{
+        margin: 0;
+        padding: 0;
+
+        /* Inclure dans les largeurs le padding et les border */
+        -webkit-box-sizing: border-box;        
+        box-sizing: border-box;
+    }
+
+    /* Configurer l'utilisation de 1rem=10px */
+    html{
+        font-size: 62.5%;
+    }
+
+    /* Augmenter la taille de mon body */
+    body{
+        font-size: 1.5rem; /* =>15px */
+        font-weight: 400;
+
+        font-family:'Merriweather', serif;
+        text-align: center;
+    }
+
+    h1,h2,h3{
+
+        font-family:'Open Sans',sans-serif;
+        font-weight: 400;
+        padding: 2rem 0 0 0 ;
+    }
+
+    h1{
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 1em;
+        text-transform: uppercase;
+        padding: 0 2rem;
+        color: white;
+    }
+
+    h2{
+        font-size: 3rem;
+        padding: 8rem 2rem;
+    }
+
+    h3{
+        font-size: 2.5rem;
+    }
+    
+    a, figcaption{
+        text-decoration: none;
+
+        -webkit-transition: all .5s;
+        transition: all .5s;
+    }
+
+    img{
+        max-width: 100%;
+    }
+
+    header > a, main a{
+        font-size: 1.2rem;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 1.5rem 2rem;
+        
+        -webkit-border-radius: 2rem;
+        border-radius: 2rem;
+    }
+
+    section{
+        padding: 3rem auto 8rem auto;
+    }
+
+
+/*
+Style Header
+*/
+
+    /* Configurer l'image de fond en parallaxe */
+     header{
+        background-image: url(../img/header.jpg);
+        background-position: center;
+        background-size: cover;
+        padding: 16rem 1rem 10rem 1rem;
+        color: rgba(255,255,255,.7);
+    }
+
+    nav{
+        color: #222;
+        background: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem;
+        text-align: right;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav > a{
+        position: absolute;
+        left: 2rem;
+        color: #eb3812;
+        font-weight: 700;
+        text-transform: uppercase;
+        height: 50px;
+    }
+    
+    .fa.fa-bars{
+        border: .1rem solid black;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        border-color: #ddd;
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+    header > a{
+        background-color: #F05F40;
+        color: white;
+    }
+
+    header h1:after{
+        content: "";
+        display: block;
+        width: 20rem;
+        height: .3rem; 
+        margin: 30px auto;
+        background: #F05F40;
+        border-width: 3px;
+        max-width: 50px;
+     }
+
+    header{ 
+         line-height:1.7em;
+    }
+
+    h1+p{
+        margin-bottom: 3rem;
+    }
+
+    /*
+    Style section
+     */
+
+     /* Section 1 */
+    section:first-child{ 
+        background-color: #F05F40;
+        color: white;
+        padding-bottom: 8rem;
+    }
+
+    section:first-child h2:after{
+        content: "";
+        display: block;
+        width: 20rem;
+        height: .3rem; 
+        margin: 30px auto;
+        background: white;
+        border-width: 3px;
+        max-width: 50px;
+    }
+
+    section:first-child p{
+        line-height: 2em;
+        color:rgba(255,255,255,.7);
+    }
+
+    section:first-child a{
+        background-color: white;
+    }
+
+    h2+p{
+        margin-bottom: 3rem;
+    }
+
+    /* Section 2 */
+
+    section:nth-child(2) h2:after{
+        content: "";
+        display: block;
+        width: 20rem;
+        height: .3rem; 
+        margin: 30px auto;
+        background: #F05F40;
+        border-width: 3px;
+        max-width: 50px;
+    }
+
+    section i{
+        font-size: 8rem;
+    }
+
+    section:nth-child(2) p{
+        padding: 1rem 4rem;
+        color:#777;
+    }
+
+    .fa.fa-diamond, .fa.fa-paper-plane, .fa.fa-newspaper-o, .fa.fa-heart{
+        color: #F05F40;
+    }
+
+    /* Section 3 */
+
+    figure{
+        width: 100%;
+        position: relative;
+        float:left;
+        line-height: 0;
+    }
+
+    figcaption{
+        position:absolute;
+        top:0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        font-size: 7rem;
+        background: #F05F40;
+        color: white;
+        line-height: 1;
+        opacity: 0;
+    }
+    figcaption:hover{
+        opacity: 1;
+    }
+
+    figcaption a{
+        color: rgba(255, 255, 255, .7);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 2.5rem;
+
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    figcaption b{
+        display: block;
+        text-transform: none;
+        font-size: 1.7rem;
+    }
+
+    /* Section 4 */
+    section:nth-child(4){
+        clear: both;
+        background-color: #222;
+        color: white;
+        padding-bottom: 6rem;
+    }
+
+    section:nth-child(4) a{
+        background-color: white;
+        font-weight: bold;
+    }
+
+
