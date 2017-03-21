@@ -33,7 +33,14 @@ Style Reset
         font-family: 'Pridi', serif;
         padding-bottom: 2rem;
     }
+    
+    h2{
+        font-size: 3rem;
+        font-weight: 400;
+        font-family: 'Pridi', serif;
+        padding-bottom: 1rem;
 
+    }
     h1 span{
         font-family:'Quicksand', sans-serif;
         font-size: .5em;/* => ma moitié de h1 */
@@ -52,12 +59,16 @@ Style Reset
         list-style: none;
     }
 
+    img{
+        max-width: 100%;
+    }
+
 /*
 Style header
 */
     header{
         color: white;
-        background-color: #3C2558;
+        background-color: #3C4075;
         padding: 2rem;
 
         /* Bloquer les enfants dans le parent */
@@ -65,18 +76,22 @@ Style header
     }
 
     nav{
-        /*display: none;*/
+        display: none;
+    }
+
+    nav:hover{
+        display: block;
     }
 
     header > a{
         /* La balise a qui est enfant direct du header */
         font-size: 1.9rem;
-        color:#3C2558;
+        color:#3C4075;
         background: white;
         width: 4rem;
         height: 4rem;
         padding-top: .7rem;
-        border: .2rem solid #3C2558;
+        border: .2rem solid #3C4075;
         display: inline-block;
 
         /* Positionner précisemment la balise */
@@ -93,7 +108,7 @@ Style header
 
     header > a:hover{
         color: white;
-        background: #3C2558;
+        background: #3C4075;
         border-color: white;
 
     }
@@ -115,12 +130,116 @@ Style header
     }
 
     header li:hover a{
-        color:#3C2558;
+        color:#3C4075;
     }
 
     nav a{
         color: white;
     }
+
+/*
+Style main
+*/
+    main{
+        padding: 4rem 2rem 10rem 2rem;
+    }
+
+
+    /* Style Portfolio */
+    figure{
+        position: relative;
+    }
+
+    figure:after{
+        content: "";
+        width: 100%;
+        height: 3rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: white;
+    }
+
+    figcaption{
+        font-weight: 700;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 50%;
+        width: 70%;
+
+        background: white;
+        padding: 1rem;
+       
+        -webkit-transform: translateX(-50%);       
+        transform: translateX(-50%);
+        }
+
+    figcaption span{
+        font-weight: 400;
+        display: block;
+    }
+
+    .portfolioPage article{
+        position: relative;
+        margin: 2rem auto;
+
+        /* Masquer les éléments qui dépassent de la balise */
+        overflow: hidden;
+    }
+
+    .portfolioPage main a{
+        color: white;
+        background: #3C4075;
+        padding: .5rem 1rem;
+
+        position: absolute;
+        top: -10%;
+        left: 50%;
+        z-index: 1;
+
+        -webkit-transform: translateX(-50%);        
+        transform: translateX(-50%);
+    }
+
+    /* Changer la propriété de la balise a au survol de l'article */
+    .portfolioPage article:hover a{
+        top: 40%;
+    }
+
+    /* Style contacts*/
+        textarea, input:not([type="submit"]){
+            display: block;
+            width: 100%;
+
+            border: none;
+            border-bottom: .1rem dotted #3C4075; 
+            padding:1rem;
+            margin-bottom: 2rem;
+            margin-top:3rem;
+        }
+
+        textarea{
+            min-height: 15rem;
+        }
+
+        form{
+            margin: 2rem auto;
+        }
+
+        form :last-child{
+            color: white;
+            background: #3C4075;
+            border: none;
+            padding: .5rem 1rem;
+        }
+
+        iframe{
+            width: 100%;
+            min-height: 20rem;
+            border: none;
+            padding-bottom: 3rem;
+        }
 
 /*
 Style footer
@@ -129,10 +248,11 @@ Style footer
     footer{
         color: white;
         position: fixed;
+        z-index: 1000;
         bottom: 0;
         left: 0;
         width: 100%;
-        background: #3C2558;
+        background: #3C4075;
         padding: 2rem;
     }
 
@@ -145,4 +265,78 @@ Style footer
         display: inline-block;
         margin-bottom: 1rem;
         padding: 1.5rem;
+    }
+
+/*
+Requêtes media
+*/
+
+    /* Ecran d'un taille minimale de 400px */
+    @media screen and (min-width:400px){
+
+        /* Style Portfolio */
+            .portfolioPage article{
+
+                /* Passer en 2 colonnes */
+                display: inline-block;
+                width: 49%;
+
+                /* Gérer les paddings */
+                padding: 0 1rem 0 0;
+            }
+
+            /* Sélectionner toutes les deux balises à partir de la 2ème */
+            .portfolioPage article:nth-child( 2n+2 ){
+                padding: 0 0 0 1rem;
+            }
+    }
+
+    /* Ecran d'une taille minimale de 750px */
+    @media screen and (min-width:750px){
+
+        /* Style Reset*/
+        main, h1, nav{
+            max-width: 85rem;
+            /* Centrer dans la largeur */
+            margin: auto;
+        }
+
+        h1{
+            font-size: 4rem;
+            text-indent: 1rem;
+        }
+
+        h1 span{
+            display: initial;
+        }
+
+        /* Style Header */
+
+            header{
+                text-align: left;
+                text-indent: 1rem;
+            }
+
+            /* Masquer le burger */
+            header > a{
+                display: none;
+            }
+
+            /* Afficher la nav */
+            nav{
+                display: block;
+                text-indent: 1rem;
+            }
+            
+            /* Aligner les items de la nav */
+            nav li{
+                display: inline-block;
+                text-indent: 0;
+            }
+        
+        /* Style main */
+            main{
+                padding: 4rem 0 10rem 0;
+            }
+
     }
