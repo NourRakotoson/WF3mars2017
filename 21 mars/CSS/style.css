@@ -208,15 +208,9 @@ Style main
     }
 
     /* Style contacts*/
-        textarea, input:not([type="submit"]){
-            display: block;
-            width: 100%;
 
-            border: none;
-            border-bottom: .1rem dotted #3C4075; 
-            padding:1rem;
-            margin-bottom: 2rem;
-            margin-top:3rem;
+        input{
+            background-color: grey;
         }
 
         textarea{
