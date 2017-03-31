@@ -50,8 +50,8 @@ Style header
         bottom: 0;
         cursor: pointer;
 
-        -webkit-transform: translate(-50%,50%);
-        transform: translate(-50%,50%);
+        -webkit-transform: translate(-50%,100%);
+        transform: translate(-50%,100%);
 
         -webkit-border-radius: 50%;
         border-radius: 50%;
@@ -66,9 +66,42 @@ Style header
     }
 
     nav ul{
-        display: none;
+        height: 0;
+        overflow: hidden;
+        list-style: none;
+
+        -webkit-transition: all .8s;        
+        transition: all .8s;
     }
 
+    .toggleBurger{
+        height: 15rem;
+    }
+
+    nav a{
+        font-weight: 400;
+        color: white;
+        text-decoration: none;
+        -webkit-transition: all .7s;
+        transition: all .7s;
+    }
+
+    nav li{
+        background: rgba(255, 255, 255, .5);
+        padding: 1rem;
+        margin-bottom: .5rem;
+
+        -webkit-transition: all .7s;
+        transition: all .7s;
+    }
+
+    .active{
+        background:rgba(11, 113, 106, .4);;
+    }
+
+    .active a{
+        color:rgba(255, 255, 255);
+    }
 /*
 Style main
 */
@@ -89,6 +122,13 @@ Style main
     h3{
         margin-bottom: 1rem;
     }
+
+    main, h1, nav{
+        max-width: 85rem;
+        margin: auto;
+        position: relative;
+    }
+
 /*
 Style footer
 */
@@ -99,3 +139,34 @@ Style footer
         width: 100%;
         margin-bottom: 0;
     }
+
+/*
+Requête media
+*/
+
+@media screen and (min-width:850px){
+
+    /* Style header */
+    header{
+        text-align: left;
+    }
+
+    .fa-bars{
+        display: none;
+    }
+
+    nav ul{
+        height: auto;
+        position: absolute;
+        right: 0;
+        bottom:0;
+    }
+     
+    nav li{
+        display: inline-block;
+    }
+
+    nav li:not(:last-child){
+        margin-right: .5rem;
+    }
+}
