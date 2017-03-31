@@ -69,4 +69,4 @@ $(document).ready(function(){
 
 
 
-});// Fin de la fonction de chargement du DOM
+});// Fin de la fonction de chargement du DOMVali
