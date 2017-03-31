@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans:400,600'); 
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+/*
+Style Reset
+*/
+
+    *{
+        padding: 0;
+        margin: 0;
+        -webkit-box-sizing: border-box;        
+        box-sizing: border-box;
+    }
+
+    html{
+        font-size: 62.5%;
+    }
+
+    body{
+        font-family: 'Open sans', sans-serif;
+        font-weight: 400;
+        font-size: 1.5rem; /* => 15px */
+        text-align: center;
+    }
+
+    h1,h2,h3{
+        font-family: 'Arvo', serif;
+        font-weight: 400;
+    }
+
+/*
+Style header
+*/
+    header, footer{
+        color: white;
+        background-color: rgba(76, 229, 213, .8);
+        padding: 2rem;
+        margin-bottom: 4rem;
+        position: relative;
+    }
+
+    .fa-bars{
+        font-size: 2rem;
+        padding-top: .6rem;
+        position: absolute;
+        background-color: rgba(76, 229, 213, .8);
+        border: .3rem solid white;
+        width: 4rem;
+        height: 4rem;    
+        left: 50%;
+        bottom: 0;
+        cursor: pointer;
+
+        -webkit-transform: translate(-50%,50%);
+        transform: translate(-50%,50%);
+
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    h1 span{
+        font-family:'Open sans', sans-serif;
+        font-weight: 400;
+        font-size: 1.5rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    nav ul{
+        display: none;
+    }
+
+/*
+Style main
+*/
+    h2{
+        color: rgba(76, 229, 213, .5);
+        
+    }
+
+    h2:after{
+        content: '';
+        display: block;
+        width: 5rem;
+        height: .2rem;
+        margin: 1rem auto 2rem auto;
+        border-bottom: .2rem solid black;
+    }
+
+    h3{
+        margin-bottom: 1rem;
+    }
+/*
+Style footer
+*/
+    footer{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin-bottom: 0;
+    }
