@@ -1,0 +1,400 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url('https://fonts.googleapis.com/css?family=Pridi:400,700|Quicksand');
+
+/*
+Style Reset
+*/
+    *{ 
+        /* Supprimer toutes les marges */
+        margin:0;
+        padding: 0;
+
+        /* Intégrer le padding et le border dans la taille des boîtes */
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    /* Configurer l'utilisation de 1rem=10px */
+    html{
+        font-size: 62.5%;
+        }
+
+    /*  */
+    body{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 400;
+        font-family:'Quicksand', sans-serif;
+    }
+
+    h1{
+        font-size: 3rem;
+        font-weight: 400;
+        font-family: 'Pridi', serif;
+        padding-bottom: 2rem;
+    }
+    
+    h2{
+        font-size: 2.5rem;
+        font-weight: 400;
+        font-family: 'Pridi', serif;
+        padding-bottom: 1rem;
+
+    }
+    h1 span{
+        font-family:'Quicksand', sans-serif;
+        font-size: .5em;/* => ma moitié de h1 */
+        display: block;
+    }
+
+    a, header li{
+        text-decoration: none;
+
+        -webkit-transition: all .5s;        
+        transition: all .5s;
+    }
+
+    /* Supprimer le style des listes */
+    ul{
+        list-style: none;
+    }
+
+    img{
+        max-width: 100%;
+    }
+
+/*
+Style header
+*/
+    header{
+        color: white;
+        background-color: #3C4075;
+        padding: 2rem;
+
+        /* Bloquer les enfants dans le parent */
+        position: relative;
+    }
+
+    nav{
+        display: none;
+    }
+
+    .aboutPage nav{
+        position: fixed;
+        z-index: 10000;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        width: 20rem;
+        padding: 2rem;
+        background: #000000;
+
+        display: block;
+    }
+
+    header > a{
+        /* La balise a qui est enfant direct du header */
+        font-size: 1.9rem;
+        color:#3C4075;
+        background: white;
+        width: 4rem;
+        height: 4rem;
+        padding-top: .7rem;
+        border: .2rem solid #3C4075;
+        display: inline-block;
+
+        /* Positionner précisemment la balise */
+        position: absolute;
+        top:100%;
+        left:50%;
+        
+        -webkit-transform: translate(-50%,-50%);        
+        transform: translate(-50%,-50%);
+
+        -webkit-border-radius: 50%;        
+        border-radius: 50%;
+    }
+
+    header > a:hover{
+        color: white;
+        background: #3C4075;
+        border-color: white;
+    }
+
+    header li{
+        font-weight: 700;
+        background: rgba(255, 255, 255, .5);
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    header li:hover{
+        background-color: white;
+    }
+
+    header li:hover a{
+        color:#3C4075;
+    }
+
+    nav a{
+        color: white;
+    }
+
+/*
+Style main
+*/
+    main{
+        padding: 4rem 2rem 10rem 2rem;
+    }
+
+    /* Style About */
+    [src="img/profil.jpg"]{
+
+        width: 20rem;
+        margin-bottom: 2rem;
+        border: .3rem solid snow;
+
+        -webkit-box-shadow: 0 0 1rem rgba(0,0 ,0 ,0.2);
+        -moz-box-shadow: 0 0 1rem rgba(0,0 ,0 ,0.2);             
+        box-shadow: 0 0 1rem rgba(0,0 ,0 ,0.2);
+
+        -webkit-border-radius: 50%;        
+        border-radius: 50%;
+    }
+
+    [src="img/profil.jpg"] + p{
+        margin-bottom:2rem;
+    }
+
+    /* La balise ul qui est placée juste après la balise h3 */
+    h3 + ul{
+        text-align: left;
+        margin:2rem auto;
+    }
+
+    /* Toutes les balises li qui suivent une balise h3 */
+    h3 + ul li{
+        background: red;
+        padding:.1rem;
+        margin-bottom:1rem;
+    }
+
+    h3 + ul p{
+        background: snow;
+        padding: 1rem;
+        min-height: 3.5rem;
+
+        /* Pour l'animation */
+        width:0;
+    }
+
+    h3 + ul span{
+        position: absolute;
+    }
+
+    /* Style Portfolio */
+    figure{
+        position: relative;
+    }
+
+    figcaption{
+        position: absolute;
+        width: 20rem;
+        background: snow;
+        padding: 1rem 2rem;
+        top: 50%;
+        left: 50%;
+
+        -webkit-transform: translate(-50%,-50%);        
+        transform: translate(-50%,-50%);
+
+        -webkit-border-top-left-radius: 2rem;
+        border-top-left-radius: 2rem;
+    }
+
+    figcaption button{
+        background: rgba(169, 169, 169, .7);
+
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        border: 0;
+        padding: 1rem;
+
+        -webkit-border-bottom-right-radius: 2rem;   
+        border-bottom-right-radius: 2rem;
+    }
+
+    #modal{
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, .7);
+            width: 100%;
+            height: 100%;
+
+            /* Pour l'animation */
+            display: none;
+    }
+
+    #modal article{
+        text-align: left;
+        background: snow;
+        max-width: 35rem;
+        margin: 5rem auto;
+        padding: 2rem;   
+    }
+
+    /* Style contacts */
+        form{
+            text-align: left;
+            margin: 2rem auto;
+        }
+
+        select{
+            margin: 3rem auto;
+        }
+
+        textarea{
+            min-height: 20rem;
+        }
+
+        textarea, input, label{
+            display: block;
+            width: 100%;
+            border: none;
+            padding: 1rem;
+        }
+
+        [type="checkbox"]{
+            display: inline-block;
+            width: auto;
+        }
+
+        textarea, input:not([type="submit"]){
+            border-bottom: .1rem solid #3C4075;
+            margin-bottom: 2rem;
+        }
+
+        form article{
+            position: relative;
+        }
+
+        label{
+            padding: 0;
+            font-weight: 700;
+            transition: all .5s;
+        }
+
+        label:not([for="userSubject"]){
+            position: absolute;
+            top: .5rem;
+        }
+
+        label.openedLabel{
+            top: -1.5rem;
+            font-size: 1.2rem;
+            color: grey;
+        }
+
+/*
+Style footer
+*/
+
+    footer{
+        color: snow;
+        position: fixed;
+        z-index: 1000;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #3C4075;
+        padding: 2rem;
+    }
+
+    footer a{
+        color: snow;  
+    }
+    
+    /* Toutes les balises li du footer sauf la dernière */
+    footer li:not(:last-child){
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+    }
+
+/*
+Requêtes media
+*/
+
+    /* Ecran d'un taille minimale de 400px */
+    @media screen and (min-width:400px){
+
+        /* Style Portfolio */
+            .portfolioPage article{
+
+                /* Passer en 2 colonnes */
+                display: inline-block;
+                width: 49%;
+
+                /* Gérer les paddings */
+                padding: 0 1rem 0 0;
+            }
+
+            /* Sélectionner toutes les deux balises à partir de la 2ème */
+            .portfolioPage article:nth-child( 2n+2 ){
+                padding: 0 0 0 1rem;
+            }
+    }
+
+    /* Ecran d'une taille minimale de 750px */
+    @media screen and (min-width:750px){
+
+        /* Style Reset*/
+        main, h1, nav{
+            max-width: 85rem;
+            /* Centrer dans la largeur */
+            margin: auto;
+        }
+
+        h1{
+            font-size: 4rem;
+            text-indent: 1rem;
+        }
+
+        h1 span{
+            display: initial;
+        }
+
+        /* Style Header */
+
+            header{
+                text-align: left;
+                text-indent: 1rem;
+            }
+
+            /* Masquer le burger */
+            header > a{
+                display: none;
+            }
+
+            /* Afficher la nav */
+            nav{
+                display: block;
+                text-indent: 1rem;
+            }
+            
+            /* Aligner les items de la nav */
+            nav li{
+                display: inline-block;
+                text-indent: 0;
+            }
+        
+        /* Style main */
+            main{
+                padding: 4rem 0 10rem 0;
+            }
+
+    }
