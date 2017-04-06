@@ -38,10 +38,10 @@ $(document).ready(function(){
     function contactForm(){
 
         // Capter le focus sur les input et le textarea
-        $('input, textarea').focus( function(){
+        $('input:not([type="submit"]), textarea').focus( function(){
 
             // Sélectionner la balise précédente pour y ajouter la class openedLabel
-            $(this).prev().addClass('openedLabel');
+            $(this).prev().addClass('openedLabel hideError');
         });
 
         // Capter le blur sur les inputs et le textarea
@@ -53,6 +53,112 @@ $(document).ready(function(){
                  // Sélectionner la balise précédente pour supprimer la class openedLabel
                 $(this).prev().removeClass();
             };           
+        });
+
+        // Capter le blur sur les inputs et le textarea
+        $('select').focus(function(){
+
+            $(this).prev().removeClass();
+            $(this).prev().addClass('hideError');
+        });
+
+        // Supprimer le message d'erreur du select
+        $('select').focus(function(){
+            $(this).prev().addClass('hideError');
+        });
+
+        // Supprimer le message d'erreur de la checkbox
+        $('[type="checkbox"]').focus(function(){
+
+            if($(this)[0].checked == false){
+                $('form p').addClass('hideError');
+            } else{
+                 $('form p').removeClass()
+            };   
+        });
+
+        // Fermer la modale
+        $('.fa-times').click(function(){
+            $('#modal').fadeOut();
+        });
+
+        // Capter la soumission du formulaire
+        $('form').submit(function(evt){
+
+            // Bloquer le comportement naturel du formulaire
+            evt.preventDefault();
+
+            // Définir les variables globales du formulaire 
+            var userName = $('#userName');
+            var userEmail = $('#userEmail');
+            var userSubject = $('#userSubject');
+            var userMessage = $('#userMessage');
+            var checkbox = $('[type="checkbox"]');
+            var formScore = 0;
+
+            // Vérifier qu'userName a au minimum 2 caractères
+            if(userName.val().length < 2){
+                $('[for=userName] b').text(' Minimum 2 caractères');
+                // version 2 : userName.prev().children('b').text('Minimum 2 caractères');
+
+            }else{
+                // Incrémenter la valeur de formScore
+                formScore ++;
+            };
+
+            // Vérifier qu'userEmail a au moins 5 caractères
+            if(userEmail.val().length < 5){
+                 $('[for=userEmail] b').text(' Minimum 5 caractères');
+            }else{
+               // Incrémenter la valeur de formScore
+                formScore ++;
+            };
+
+            // Vérifier que l'utilisateur a bien selectionné un sujet
+            if(userSubject.val() == 'null'){
+               $('[for=userSubject] b').text(' Vous devez choisir un sujet');
+            }else{
+                // Incrémenter la valeur de formScore
+                formScore ++;
+            };
+
+            // Vérifier qu'il y a moins 5 caractères dans userMessage
+            if(userMessage.val().length < 5){
+                $('[for=userMessage] b').text(' Minimum 5 caractères');
+            }else{
+                formScore ++;
+            };
+
+            // Vérifier si la checkbox a été cochée
+            if(checkbox[0].checked == false){
+                $('form p b').text(' Vous devez accepter les Conditions Générales');
+            }else{
+                formScore ++;
+            };
+
+            // Validation finale du formulaire
+           if(formScore == 5){
+                console.log(' Le formulaire est validé !');
+
+                // Envoi des données dans le fichier de traitement PHP
+                // PHP répond true => continuer le traitement du formulaire
+
+                    // Ajouter la valeur de userName dans la balise h2 span de la modale
+                    $('#modal span').text( userName.val() );
+
+                    // Afficher la modale
+                    $('#modal').fadeIn();
+
+                    // Vider les champs du formulaire
+                    $('form')[0].reset();
+
+                    // Supprimer les messages d'erreur
+                    $('form b').text('');
+
+                    // Replacer les labels
+                    $('label').removeClass();
+           };
+
         });
     };
 
