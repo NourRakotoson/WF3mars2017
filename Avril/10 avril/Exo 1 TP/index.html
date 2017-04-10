@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>10 Avril - Exo 1 - TP</title>
+
+        <link rel="stylesheet" href="CSS/style.css">
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#">Start Bootstrap</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Contact</a></li>                    
+                </ul>
+            </nav>
+
+            <h1>Welcome To Our Studio! <span>It's nice to meet you</span></h1>
+            <button>Tell me more</button>
+        </header>
+
+        <main>
+            <section>
+                <h2>Portfolio</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                <article>
+                    <figure>
+                        <a href="#">+</a>
+                        <img src="IMG/projet1.png" alt="Projet 1">
+                        <figcaption>Round Icons <span>Graphic design</span></figcaption>
+                    </figure>
+                </article>
+
+                <article>
+                    <figure>
+                        <a href="#">+</a>
+                        <img src="IMG/projet2.png" alt="Projet 2">
+                        <figcaption>Startup Framework <span>Website design</span></figcaption>
+                    </figure>
+                </article>
+
+                <article>
+                    <figure>
+                        <a href="#">+</a>
+                        <img src="IMG/projet3.png" alt="Projet 3">
+                        <figcaption>Treehouse <span>Website design</span></figcaption>
+                    </figure>
+                </article>
+            </section>
+
+            <section>
+                <h2>Contact Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+
+                <form action="contact.php">
+                    <article>
+                        <label for="userName">Your name<b></b></label>
+                        <input type="text" id="userName" name="name">
+                    </article>
+
+                    <article>
+                        <label for="userSubject">Choisir un sujet<b></b></label>
+
+                        <select id="userSubject" name="subject">
+                            <option value="null">- Sélectionner -</option>
+                            <option value="contact">Prise de contact</option>
+                            <option value="rdv">Prise de rendez-vous</option>
+                            <option value="devis">Demande de devis</option>
+                        </select>
+                    </article>
+
+                     <article>
+                        <label for="userPhone">Your phone<b></b></label>
+                        <input type="number" id="userPhone" name="phone">
+                    </article>
+
+                    <article>
+                        <label for="userMessage">Your message<b></b></label>
+                        <textarea id="userMessage" name="message"></textarea>
+                    </article>
+
+                    <input type="submit" value="Send message">
+                    <p></p>
+                </form>
+                
+            </section>
+        </main>
+
+        <footer>
+            <ul>
+                <li>Copyright &copy; Your website</li>
+                <li><a href="#"></a><i class="fa fa-twitter" aria-hidden="true"></i></li>
+                <li><a href="#"></a><i class="fa fa-facebook" aria-hidden="true"></i></li>              
+                <li><a href="#"></a><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+                <li><a href="#"></a>Privacy policy</li>
+                <li><a href="#">Terms of use</a></li>  
+            </ul>
+        </footer>
+        <!--
+            Intégrer le CDN de jQuery AVANT le script
+        -->
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+        <!--
+            Intégrer le script de la page APRES jQuery 
+        -->
+        <script src="JS/script.js"></script>
+    </body>
+</html>

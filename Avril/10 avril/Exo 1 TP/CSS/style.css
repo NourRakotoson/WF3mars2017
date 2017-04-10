@@ -1,0 +1,190 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+/*
+Style Reset
+*/
+    *{ 
+    /* Supprimer toutes les marges */
+    margin:0;
+    padding: 0;
+
+    /* Intégrer le padding et le border dans la taille des boîtes */
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    }
+
+    /* Configurer l'utilisation de 1rem=10px */
+    html{
+        font-size: 62.5%;
+        }
+
+   
+    body{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 400;
+        font-family:sans-serif;
+    }
+
+    section{
+        padding: 3rem auto 8rem auto;
+    }
+
+/*
+Style header
+*/
+    nav{ 
+        top: 0;
+        left:0;
+        width: 100%;
+        min-height: 15rem;
+        padding-bottom: 10rem;
+        background-color: rgba(0, 0, 0, 0);
+
+        text-align: right;
+    }
+
+    nav li{
+        display: inline-block;
+        padding: 2.5rem .5rem;
+    }
+
+    li:first-child a{
+        position: absolute;
+        left: 0;
+        padding: .5rem;
+        font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial;
+        color: #fed136;
+    }
+
+    nav a{
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: .5rem;
+    }
+
+    h1{
+        font-weight: 400;
+        font-size: 2.5rem;
+        font-style: italic;
+        color: white;
+    }
+
+    h1 span{
+        display: block;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 4rem;
+        padding-bottom: 3rem;
+    }
+
+    header button{
+        background:#fed136;
+        color: white;
+        padding: 2rem 4rem;
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        border: none;
+        border-radius: .5rem;
+    }
+
+    /* Configurer l'image de fond en parallaxe */
+     header{
+        background-image: url(../IMG/header-bg.jpg);
+        background-position: center;
+        background-size: cover;
+        padding: 1rem 2rem 15rem 2rem;
+        color: rgba(255,255,255,.7);
+     }
+
+/*
+Style section
+*/
+    
+    section:nth-child(1) h2{
+        padding: 3rem 0 1.5rem 0;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    section:nth-child(1) p{
+        color: grey;
+        font-style: italic;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    figure{
+        width:100%;
+        position: relative;
+        padding: 10rem;
+    }
+
+    figcaption{
+        position:absolute;
+        top:0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+/* 
+Style Contacts 
+*/
+    section:nth-child(2){
+        background-image: url(../IMG/map-image.png);
+        background-color: black;
+        background-position: center;
+        background-size: cover;
+        padding: 1rem 2rem 15rem 2rem;
+        color: rgba(255,255,255,.7);
+     }
+
+    section:nth-child(2) h2{
+         color: white;
+        padding: 6rem 0 2rem 0;
+        text-transform: uppercase;
+     }
+
+    section:nth-child(2) p{
+         font-style: italic;
+        font-family: serif;
+        padding-bottom: 4rem;
+     }
+
+    input:not([type=submit]){
+        padding: 2rem 8rem;
+        border-radius: .5rem;
+        border: none;
+        margin: 1rem;
+    }
+
+    textarea{
+        padding: 9rem 10rem;
+        border-radius: 1rem;
+    }
+
+    form b{
+        font-size: .7em;
+        text-transform: uppercase;
+        color: red;
+
+        -webkit-transition: opacity .5s;
+        transition: opacity .5s;
+    }
+
+    submit:only-of-type{
+            padding: 2rem 5rem;
+        background: #fed136;
+        color: white;
+        font-size: 2rem;
+        border-radius: 1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+    }

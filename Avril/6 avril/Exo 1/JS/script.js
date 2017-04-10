@@ -39,9 +39,11 @@ $(document).ready(function(){
 
         // Capter le focus sur les input et le textarea
         $('input:not([type="submit"]), textarea').focus( function(){
+            console.log(function);
 
             // Sélectionner la balise précédente pour y ajouter la class openedLabel
             $(this).prev().addClass('openedLabel hideError');
+            
         });
 
         // Capter le blur sur les inputs et le textarea
