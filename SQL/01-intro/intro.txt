@@ -1,0 +1,112 @@
+INTRODUCTION AU SQL
+
+***************************
+QUELQUES DEFINITIONS:
+
+Base de données: il s'agit d'un emplacement de données sauvegardées. 
+La BDD inclut des tables qui sont composées de champs ou colonnes (selon les terminologies)qui caractèrisent un genre d'informations et qui contiennent des enregistrements (lignes) contenant des donn�es rentrant dans chaque champ.
+
+SGBD (Système de Gestion de Base de Données): c'est un logiciel qui sert d'interface entre utilisateur et BDD permettant:
+- d'introduire des données,
+- de les mettre à jour,
+- et d'y accèder.
+My SQL est le SGBD utilisé pour 90% des sites. 
+
+SQL (Structured Query Langage) :il s'agit d'un langage de requêtes qui permet d'interroger une base de données.
+
+ 
+***************************
+SGBDR & SGBD NoSQL:
+
+on distingue deux principaux types de SGBD, à savoir:
+
+- Les SGBDR pour Système de Gestion de Base de Données Relationnelles (par exemple, MySql). 
+
+L'information est stockée une seule fois à l'intérieur de la BDD, quand on doit réutiliser des données on appelle l'ID pour faire référence à toutes les informations de la table correspondante.
+Clé primaire quand elle est unique (=PK Primary Key). Clé étrangère (=FK Foreign Key)lorsqu'on réutilise l'id par exemple.
+
+	Il consiste à stocker l'information dans des colonnes, des clés primaires et des clés étrangères. 
+	Cela permet de ne pas stocker l'information plusieurs fois mais seulement dans une seule table. 
+	
+	=> Exemples de SGBDR:
+	MySQL
+	Oracle
+	Microsoft SQL Server
+	PostgreSQL
+	...
+
+- Les NoSQL pour Not only SQL.
+
+	Cela ressemble fortement à un grand tableau unidimensionnel avec des millions de donn�es.Il n'y a plus de colonnes, on parle de BDD clé-valeur. 
+	
+	=> Exemples de NoSQL:
+	MongoDB
+	Redis
+	CouchDB
+	Cassandra
+
+***************************
+Site dynamique: comme les sites e-commerce. L'administrateur du site enregistre tous ces produits dans la BDD dans un table produit. 
+Et quand l'internaute clique sur un produit, la page est composée d'informations en base de données. 
+Front Office visible par l'internaute.
+Back Office par l'administrateur, le client propriétaire du site.
+Une base données.
+Il faut ces 3  pour un site dynamique.
+Le SQL permet d'enregistrer les informations dans la BDD et aussi à restituer une page dynamique avec les détails des produits.
+
+Site statique: écrit en dur(en HTML). Chaque page existe et nécessite de changer le code individuellement. 
+
+***************************
+
+Deux exemples d'utilisation des BDD et du SQL dans des sites dynamiques:
+	=> Inscription/Connection d'un membre du site
+	=> Site e-commerce avec une page boutique et une page détaillée du produit
+
+	Un site dynamique par opposition à un site statique, est caractérisé par la présence 
+	d'un Front-Office(partie visible par l'internaute), 
+	d'un Back-Office (partie dédiée à l'administrateur du site) 
+	et d'une base de données. 
+
+***************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
