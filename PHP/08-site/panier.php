@@ -13,7 +13,9 @@ if (isset($_POST['ajout_panier'])) {
 
     ajouterProduitDansPanier($produit['titre'], $_POST['id_produit'], $_POST['quantite'], $produit['prix']);
 
-    //...
+    // On redirige vers la fiche produit rn indiquant que le produit a bien été ajouté au panier :
+    header('location:fiche_produit.php?statut_produit=ajoute&id_produit=' . $_POST['id_produit']);
+    exit();
 }
 
 // 3 - Vider le panier :
@@ -46,7 +48,14 @@ if (isset($_POST['valider'])) {
         $prix = $_SESSION['panier']['prix'][$i];
 
         executeRequete("INSERT INTO details_commande (id_commande, id_produit, quantite, prix) VALUES (:id_commande, :id_produit, :quantite, :prix)", array(':id_commande' => $id_commande, ':id_produit' => $id_produit, ':quantite' => $quantite, ':prix' => $prix));
+
+        // Décrémentation du stock du produit : 
+        executeRequete("UPDATE produit SET stock = stock - :quantite WHERE id_produit = :id_produit", array(':quantite' => $quantite, ':id_produit' => $id_produit));
     }
+
+    unset($_SESSION['panier']); // on supprime le panier validé
+
+    $contenu .= '<div class="bg-success">Merci pour votre commande, le numéro de suivi est le '. $id_commande .'</div>';
 }
 
 
