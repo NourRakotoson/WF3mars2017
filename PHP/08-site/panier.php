@@ -2,9 +2,52 @@
 require_once('inc/init.inc.php');
 
 //--------------------------------------- TRAITEMENT --------------------------------------
+// 2 - Ajouter un produit au panier :
 
+//echo '<pre>'; print_r($_POST); echo '</pre>';
+if (isset($_POST['ajout_panier'])) {
+    // Si on a cliqué sur "ajouter au panier", alors on sélectionne en base les infos du produit ajouté (en particulier le titre et le prix):
+    $resultat = executeRequete("SELECT id_produit, titre, prix FROM produit WHERE id_produit = :id_produit", array(':id_produit' => $_POST['id_produit'] )); // l'id du produit est donnée par le formulaire d'ajout au panier
 
+    $produit = $resultat->fetch(PDO::FETCH_ASSOC); // pas de while car qu'un seul produit (on passe par l'id)
 
+    ajouterProduitDansPanier($produit['titre'], $_POST['id_produit'], $_POST['quantite'], $produit['prix']);
+
+    //...
+}
+
+// 3 - Vider le panier :
+if (isset($_GET['action']) && $_GET['action'] == 'vider') {
+    // si il y a l'indice ['action'] dans l'URL et qu'il vaut 'vider':
+    unset($_SESSION['panier']); // unset supprime un array ou une variable
+}
+
+// 4 - Supprimer un article du panier : 
+if (isset($_GET['action']) && $_GET['action'] == 'supprimer_article' && isset($_GET['articleASupprimer'])) {
+    retirerProduitDuPanier($_GET['articleASupprimer']); // on passe à la fonction retirerProduitDuPanier l'id du produit à retirer
+}
+
+// 5 - Validation du panier :
+if (isset($_POST['valider'])) {
+    $id_membre = $_SESSION['membre']['id_membre'];
+    $montant_total = montantTotal();
+
+    // Le panier étant validé, on inscrit la commande en BDD : 
+    executeRequete("INSERT INTO commande (id_membre, montant, date_enregistrement) VALUES (:id_membre, :montant, NOW())", array(':id_membre' => $id_membre, ':montant' => $montant_total));
+
+    // On récupère l'id_commande de la commande insérée ci-dessus, pour l'utiliser en clé étrangère dans la table details_commande :
+    $id_commande = $pdo->lastInsertId();
+
+    // Mise à jour de la table details_commande :
+    for ($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++) {
+        // on parcourt le panier pour enregistrer chaque produit : 
+        $id_produit = $_SESSION['panier']['id_produit'][$i];
+        $quantite = $_SESSION['panier']['quantite'][$i];
+        $prix = $_SESSION['panier']['prix'][$i];
+
+        executeRequete("INSERT INTO details_commande (id_commande, id_produit, quantite, prix) VALUES (:id_commande, :id_produit, :quantite, :prix)", array(':id_commande' => $id_commande, ':id_produit' => $id_produit, ':quantite' => $quantite, ':prix' => $prix));
+    }
+}
 
 
 //--------------------------------------- AFFICHAGE ---------------------------------------
@@ -34,7 +77,7 @@ if (empty($_SESSION['panier']['id_produit'])) {
                 echo '<td>' . $_SESSION['panier']['quantite'][$i] . '</td>';
                 echo '<td>' . $_SESSION['panier']['prix'][$i] . '</td>';
                 echo '<td>
-                        <a href="?action=supprimer_article&articleASsupprimer='. $_SESSION['panier']['id_produit'][$i] .'">Supprimer article</a>
+                        <a href="?action=supprimer_article&articleASupprimer='. $_SESSION['panier']['id_produit'][$i] .'">Supprimer article</a>
                     </td>';
             echo '</tr>';
         }
@@ -57,7 +100,7 @@ if (empty($_SESSION['panier']['id_produit'])) {
             // Membre non connecté, on l'invite à s'inscrire ou à se connecter
              echo '<tr class="text-center">
                     <td colspan="5">
-                        Veuillez vous <a href="inscription.php"> inscrire </a> ou vous <href="connexion.php"> connecter </a> afin de valider le panier
+                        Veuillez vous <a href="inscription.php"> inscrire </a> ou vous <a href="connexion.php"> connecter </a> afin de valider le panier
                     </td>
                 </tr>';
         } 
@@ -67,7 +110,7 @@ if (empty($_SESSION['panier']['id_produit'])) {
                         <a href="?action=vider"> Vider le panier </a>
                     </td>
                 </tr>';
-        } 
+       
 
     echo '</table>';
 } // fin du else
