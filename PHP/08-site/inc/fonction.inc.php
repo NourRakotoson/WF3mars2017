@@ -119,8 +119,10 @@ Si le panier est vide, vous afficher panier(0)*/
 
 function quantiteProduit() {
     if (isset($_SESSION['panier'])) { 
-        return count($_SESSION['panier']['id_produit']);
+        //return count($_SESSION['panier']['id_produit']);
+        return array_sum($_SESSION['panier']['quantite']); // array_sum additionne les valeurs situées à un indice
     } else {
-        return 0;
+        return 0; // après un return les instructions ne sont pas exécutées, elles le seront à l'appel de la fonction
     }
 }
+
