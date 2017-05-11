@@ -559,3 +559,44 @@ function twentytwelve_customize_preview_js() {
 	wp_enqueue_script( 'twentytwelve-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20141120', true );
 }
 add_action( 'customize_preview_init', 'twentytwelve_customize_preview_js' );
+
+// Fonctions ajoutées widget
+register_sidebar(array(
+    'name' => 'region du bas',
+    'id' => 'region-du-bas',
+    'description' => 'region en bas à gauche',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h1 class="widget-title">',
+    'after_title' => '</h1>', 
+));
+
+register_sidebar(array(
+    'name' => 'region du haut a gauche',
+    'id' => 'region-du-haut-a-gauche',
+    'description' => 'region en haut à droite',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h1 class="widget-title">',
+    'after_title' => '</h1>', 
+));
+
+register_sidebar(array(
+    'name' => 'region du haut au centre',
+    'id' => 'region-du-haut-au-centre',
+    'description' => 'region du haut au centre',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h1 class="widget-title">',
+    'after_title' => '</h1>', 
+));
+
+register_sidebar(array(
+    'name' => 'region du haut à droite',
+    'id' => 'region-du-haut-a-droite',
+    'description' => 'region du haut à droite',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h1 class="widget-title">',
+    'after_title' => '</h1>', 
+));

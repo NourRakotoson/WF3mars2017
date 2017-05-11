@@ -1774,5 +1774,50 @@ img#wpstats {
 	.comments-area article header time {
 		margin-left: 50px;
 		margin-left: 3.57142857rem;
-	}
+	}	
 }
+	.menu-administratif li {
+		display: inline-block;
+		margin: 0 20px;
+	}
+	
+	.image-widget {
+		display: inline-block;
+		vertical-align:middle;
+		box-sizing:border-box;
+		width:30%;
+		margin-left:2%;	
+	}
+
+	.modele-trois-colonnes-colonne-gauche {
+		float: left;
+		width: 200px;
+		border-right: 1px solid #c0c0c0;
+		padding: 2px;
+		min-height: 700px;
+		background: red;
+		
+	}
+
+	.modele-trois-colonnes-colonne-centrale {
+		float: left;
+		max-width: 400px;
+		padding: 2px;
+		min-height: 700px;
+		background: blue;
+		vertical-align: top;
+	}
+
+	.modele-trois-colonnes-colonne-droite {
+		float: left;
+		max-width: 200px;
+		padding: 2px;
+		min-height: 700px;
+		border-left: 1px solid #c0c0c0;
+		background: black;
+		text-align: left;
+	}
+
+	.clear {
+		clear: both;
+	}
