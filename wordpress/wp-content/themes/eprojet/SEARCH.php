@@ -1,0 +1,1 @@
+<?php printf( __('Search Results for: %s', 'eprojet'), get_search_query()); // permet d'afficher le nombre de résultat de la recherche ?> 

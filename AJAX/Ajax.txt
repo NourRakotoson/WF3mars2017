@@ -1,0 +1,16 @@
+AJAX : Asynchronous Javascript And Xml
+
+On mélange deux langages, Javascript qui fait appel à un fichier extérieur qui effectue un traitement. Ce fichier a la capacité de communiquer avec les BDD. 
+Permet d'afficher le contenu au fur et à mesure, en fonction d'action. 
+L'AJAX sert à changer les informations de la page sans rechargement de page. 
+
+C'est un échange de données qui doit être lu par plusieurs types de langages. 
+
+XML, lourd et moins utilisé. Désormais utilisation du JSON (JavaScript Object Notation).
+
+AJAJ : Asynchronous Javascript and Json, la norme actuelle. 
+
+Exemple : connexion sans rechargement de page. 
+
+http://gs.statcounter.com/
+site le plus performant des gratuits. Statistiques des tailles d'écrans, et navigateur utilisé par région. Utile pour audit client
