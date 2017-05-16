@@ -1,0 +1,61 @@
+<!--Faire une page avec un champ select qui permet de choisir un prénom 
+    Mettre en place une requête AJAX qui récupère le prénom choisi pour la passer dans les paramètres
+    Afficher la réponse dans notre page HTML  
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <style>
+            * { font-family: sans-serif; }
+            form { width: 50%; margin: 0 auto; }
+            select, input { padding: 5px; width: 100%; }
+        </style>
+    </head>
+
+    <body>
+        <form id="form_choix">  
+            <label>Choisir un prénom</label>
+            <select id="choix" onchange="ajax();">
+                <option>Daniel</option>
+                <option>Julien</option>
+                <option>Fabrice</option>
+                <option>Stephanie</option>
+                <option>Damien</option>
+                <option>Thomas</option>                
+            </select>
+            <br />
+            <br />
+            <input type="submit" value="valider">
+        </form>
+
+        <div id="resultat"></div>
+
+        <script>
+            function ajax() {
+                //alert("Ok");
+                var choix = document.getElementById("choix");
+                choix = choix.value;
+                //alert(choix);
+                var file = "ajax.php"; 
+
+                r = new XMLHttpRequest(); 
+
+                var parametres = "prenom="+choix;
+                r.open("POST", file, true); // préparation
+                r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                r.onreadystatechange = function() {
+
+                    if(r.readyState == 4 && r.status == 200) {
+                        console.log(r.responseText);
+                        var obj = JSON.parse(r.responseText);
+                        // la méthode PARSE de l'objet JSON permet d'évaluer la réponse et d'en faire un objet. 
+                        document.getElementById("resultat").innerHTML = obj.resultat; // on appelle l'indice côté PHP "resultat"
+                    }
+                }
+                r.send(parametres); // envoi
+            }
+        </script>
+    </body>
+</html>
