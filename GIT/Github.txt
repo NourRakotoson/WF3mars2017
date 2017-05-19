@@ -1,0 +1,111 @@
+Github
+
+Autre solution git : 
+https://bitbucket.org/
+Dépôt privé gratuit, les publics sont payants et nombre de collaborateurs limités à 5.
+
+https://about.gitlab.com/
+
+Apache Subversion (SVN) ancêtre de Github
+
+Article intro:
+https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/
+
+Une application de contrôle de version comme Git empêche ça d’arriver. Vous et votre collègue pouvez chacun de votre côté verser vos révisions sur la même page, et Git sauvegardera deux copies. Plus tard, vous pourrez fusionner vos modifications sans perdre le travail dans le processus. Vous pouvez même revenir en arrière à tout moment, parce que Git conserve une “copie instantanée” de tous les changements produits.
+
+Lexique :
+
+Ligne de Commande : Le programme de l’ordinateur que nous utilisons pour entrer des commandes Git. Sur un Mac, ça s’appelle Terminal. Sur un PC, c’est un programme non-natif que vous téléchargez lorsque vous téléchargez Git pour la première fois (nous allon faire ça dans la section suivante). Dans les deux cas, vous tapez à l’écran des commandes à base de texte, appelées invites de commande, au lieu d’utiliser une souris.
+
+Dépôt : Un répertoire ou de l’espace de stockage où vos projets peuvent vivre. Parfois les utilisateurs GitHub raccourcissent ça en “repo”. Il peut être local sur un répertoire de votre ordinateur, ou ce peut être un espace de stockage sur GitHub ou un autre hébergeur en ligne. À l’intérieur d’un dépôt, Vous pouvez conserver des fichiers de code, des fichiers texte, des images.
+
+Commit : C’est la commande qui donne à Git toute sa puissance. Quand vous “committez”, vous prenez un “instantané”, une “photo” de votre dépôt à ce stade, vous donnant un point de contrôle que vous pouvez ensuite réévaluer ou restaurer votre projet à un état précédent.
+
+Branche : Comment plusieurs personnes travaillant sur un projet en même temps sans que Git ne s’embrouille ? Habituellement, elles se “débranchent” du projet principal avec leurs propres versions complètes des modifications qu’elles ont chacune produites de leur côté. Après avoir terminé, il est temps de “fusionner” cette branche pour la ramener vers la branche “master”, le répertoire principal du projet.
+
+Eviter de créer une branche par collaborateur sur GitHub
+
+PDF aide-mémoire sur Apolearn
+
+Création d'un nouveau repository
+
+Autre article explicatif
+http://rogerdudler.github.io/git-guide/index.fr.html
+
+Autre solution pour remplacer XAMPP sur mac : http://www.ampps.com/
+
+http://www.initializr.com/ Permet de démarrer un projet très rapidement
+
+Polyfills: technique qui permet de rendre compatible les navigateurs plus anciens avec les techniques plus récentes (type HTML 5)
+Exemple : html5shiv, fichier JS à mettre dans le head qui permet de détecter les vieux navigateurs et d'agir en fonction
+Respond.js fait la même chose avec les media queries (CSS3)
+
+Téléchargement d'initializr, dézipper et glisser les fichiers dans Etudiant/Git/MonProjet 
+Glisser le fichier MonProjet sur le terminal sous Mac, directement accès au fichier
+
+-Git init (initier les commandes ds le bon fichier)
+-Git status (voir les fichiers)
+-Git add * (pareil que Git add all)
+-Git status à nouveau (de nouveaux fichiers apparaissent)
+
+-git commit -m "Premier Versement de Fichier
+-git status : On branch master nothing to commit, working tree clean
+
+modification du H1 dans index.html : <h1>Bonjour, le monde!</h1>
+
+-On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+-git commit -a -m "Mise en place de la page d'accueil"
+a ajout des dernières modifications -m pour nommer
+
+Pour l'instant en local. 
+
+-git remote add origin https://github.com/NourRakotoson/MonProjet.git
+indiquer le dépôt où sera stocké en ligne le Github
+
+-git push -u origin master
+u la première fois pour lier le fichier distant au local
+
+
+
+
+Sites:
+
+http://cmder.net/, émulateur de console pour Windows, rend les commandes plus lisibles
+
+http://overapi.com/, Cheat Sheets. Décrit chaque fonction en différents langages (HTML, CSS, JS) et renvoie sur la documentation 
+
+http://devdocs.io/, pareil mais documentation hors ligne accessible en hors ligne. Et comprend aussi les notices de tous les framework
+
+https://velocity.silverlakesoftware.com/, sur Visual Studio code (plugin Search Docsets), une fois chargé toute la documentation en hors ligne. Avec shift + F1 on peut avoir la documentation de chaque balise ou framework utilisés
+
+pour mac : logiciel Dash et même plugin
+
+https://www.synbioz.com/blog/git-adopter-un-modele-de-versionnement-efficace
+
+Travail en groupe sur Git:
+chaque chose ajoutée au master doit être finie, testée et validée, stylisée, et on ne revient pas dessus
+
+http://nvie.com/posts/a-successful-git-branching-model/
+
+Créer un master "production"
+et une branche "develop"
+Chacun crée une sous-branche où il développe une fonctionnalité qu'on ne merge avec develop que quand on a finit ou que l'on veut que les autres voient
+
+https://desktop.github.com/
+en local quand on change de branche, cela change le repertoire de fichiers
+
+https://www.gitkraken.com/ même chose mais plus difficile à prendre en main par contre visualisation des branches
+
+Permet de développer super facilement une app mobile sur tous les supports 
+http://ionicframework.com/
+
+wf3@hl-media.fr
+07-83-97-15-15
