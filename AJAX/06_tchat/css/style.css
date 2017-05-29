@@ -53,7 +53,7 @@ margin: 0 10px 0 0;
 padding: 2px;
 border: 1px solid #c0c0c0;
 }
-#form .submit{ float: left; background: #dbdbdb; width: inherit !important }
+.submit{ float: left; background: #dbdbdb;  }
 .clear{ clear: both; }
 .bleu { color: #4e99e6; }
 .rose { color: #e86dbe; }
@@ -62,12 +62,3 @@ h2{ margin: 0; font-size: 13px; }
 p{ margin: 0; }
 #message_tchat:hover{ cursor: default; }
 #liste_membre_connecte:hover{ cursor: default; }
-
-.cadre_accueil{
-    width: 50%;
-    margin: 0 auto;
-}
-#form input, #form select{
-    width: 100%;
-    padding: 5px;
-}
