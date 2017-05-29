@@ -1,0 +1,19 @@
+COURS GIT HUB :
+http://rogerdudler.github.io/git-guide/index.fr.html
+https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/
+https://www.christopheducamp.com/2013/12/16/github-pour-nuls-partie-2/
+
+LOGICIEL GIT :
+https://desktop.github.com/
+https://www.gitkraken.com/
+https://www.sourcetreeapp.com/
+
+LOGICIEL CLI :
+http://cmder.net/
+https://github.com/Bash-it/bash-it
+
+DOCUMENTATION :
+http://overapi.com/css
+http://devdocs.io/
+https://velocity.silverlakesoftware.com/
+Plugin VS CODE : Search Docsets (avec Velocity)
