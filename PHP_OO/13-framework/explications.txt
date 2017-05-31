@@ -1,0 +1,6 @@
+Arborescence : 
+    app/ :  La configuration de l'application (dans un Framework c'est là où on modifie pour l'utilisation de notre app).
+    src/ : Le code PHP et HTML spécifique à notre projet (dans un Framework c'est là où on créé du code pour l'utilisation de notre app).
+    vendor/ : Code général (coeur) de l'application et les entités.
+    web/ : Répertoire web racine. Le point d'entrée de notre application (index.php, img/, photo/, js/, css/, font/). Assets chez Symphony et Silex.
+---------------------------------------------------
