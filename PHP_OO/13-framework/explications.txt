@@ -1,39 +1,76 @@
 Arborescence : 
-    app/ :  La configuration de l'application (dans un Framework c'est lÃ  oÃ¹ on modifie pour l'utilisation de notre app).
-    src/ : Le code PHP et HTML spÃ©cifique Ã  notre projet (dans un Framework c'est lÃ  oÃ¹ on crÃ©Ã© du code pour l'utilisation de notre app).
-    vendor/ : Code gÃ©nÃ©ral (coeur) de l'application et les entitÃ©s.
-    web/ : RÃ©pertoire web racine. Le point d'entrÃ©e de notre application (index.php, img/, photo/, js/, css/, font/). Assets chez Symphony et Silex.
----------------------------------------------------
-Nature des diffÃ©rents fichiers : 
+	app/ : La configuration de l'application
+	src/ : Le code PHP et HTML spécifique à notre projet
+	vendor/ : Code générale (coeur) de l'application et les entités. 
+	web/ : Repertoire web racine. Le point d'entrée de notre application (index.php, img/ photo/ js/ css/ font/) (asset)
+	
+--------------------------------------------
+Nature des différents fichiers : 
 
 app/
-    Config/
-        parameters.php : 
-        Contient toutes les informations de connexion Ã  la BDD... et autres paramÃ¨tres...
-    
-    Config.php:
-    Contient l'inclusion des paramÃ¨tres de connexion Ã  la BDD et des les retourne dans une mÃ©thode qu'on va appeler getParametersConnect()
-
+	Config/
+		parameters.php : 
+		Contient toutes les informations de connexion à la BDD... et autres paramètres...
+		
+	Config.php: 
+	Contient l'inclusion des params de connexion à la BDD, et les retourne dans une méthode getParametersConnect()
+	
 vendor/
-    autoload.php : 
-    Permet d'inclure les bons fichiers lors d'un 'new' (lors d'une instanciation).
-    Attention : seuls les controler sont dans le dossier src/, il faut donc prÃ©ciser que si le namespace n'est pas 'Controller' alors les fichiers sont dans vendor/.
-    Autre subtilitÃ© : le contrÃ´leur gÃ©nÃ©ral (Controller\Controller) est Ã©galement dans vendor/. 
-
-    Entity/
-        Produit.php, Membre.php, Commande.php 
-        Classes qui contiennent toutes les propriÃ©tÃ©s (private) de nos entitÃ©s et les getters et setters. POPO (Plain Old PHP Object)
-
+	autoload.php :
+	Permet d'inclure les bons fichiers lors d'un 'new' (instanciation)
+	Attention : seuls les controller sont dans le dossier SRC, il faut donc préciser que si le namespace n'est pas 'Controller' alors les fichiers sont dans vendor. 
+	Autre subtilité : Le controller général (Controller\Controller) est également dans vendor. 
+	
+	Entity/
+		Produit.php, Membre.php, Commande.php
+		Classes qui contiennent toutes les propriétés (private) de nos entités et getters et les setters. POPO (Plain Old PHP Object)
+	
 web/
-    index.php : 
-    ClÃ© d'entrÃ©e de notre application (SILEX : index.php / Symfony : app.php)
-
+	index.php : 
+	Clé d'entrée de notre application (SILEX : index.php / Symfony app.php)
+	
+	
 vendor/
-    Manager/
-        PDOManager.php : 
-        Cette classe reprÃ©sente la connexion Ã  la BDD. Elle contient et nous retourne notre objet PDO grÃ¢ce auquel nous pourrons effectuer des requÃªtes. 
-        Cette classe est un Singleton (singlette en franÃ§ais). Cela signifie qu'il ne peut y avoir qu'un seul objet issu de cette classe.
-
-        EntityRepository.php : 
-        Un repository centralise tout ce qui touche Ã  la BDD et la rÃ©cupÃ©ration des entitÃ©s. ConcrÃ¨tement, il ne doit pas y avoir de requÃªte ailleurs que dans un repository.
-        Si une entitÃ© a besoin de requÃªtes spÃ©cifiques (exemple : jointure) dans ce cas les requÃªtes seront codÃ©es directement dans le repository en question. 
+	Manager/
+		PDOManager.php : 
+		Cette classe représente la connexion à la BDD. Elle contient et nous retourne notre objet PDO grâce auquel nous pourrons effectuer des requêtes. 
+		Cette classe est un Singleton (singlette). Cela signifie qu'il ne peut y avoir qu'un seul objet issu de cette classe. 
+	
+		EntityRepository.php : 
+		Un repository centralise tout ce qui touche à la BDD et la récupéreration des entités. Concrètement il ne doit pas y avoir de requêtes ailleurs que dans un repository. 
+		Si une entité à besoin de requêtes spécifiques (exemple : jointure) dans ce cas les requêtes seront codées directement dans le repository en question. 
+		
+	Repository/
+		ProduitRepository.php : 
+		Ce fichier contiendra toutes les fonctions liées à l'netité produit, demandera à EntityRepository de faire certaines requêtes. Et si l'entité a besoin de requêtes spécifiques, elles seront codées ici. 
+	
+	
+	Controller/
+		Controller.php
+		C'est le controleur général de l'application. Il a deux missions : 
+			1/ Récupérer le repository correspondant à l'entité dans laquelle je suis : getRepository()
+			2/ Affiche la vue correspondant à l'action : render()
+	
+src/
+	Controller/
+		ProduitController.php : 
+		Cette classe hérite du controleur général de l'application, et permet de déclencher toutes les actions liées à l'entité produit. 
+	
+	View/
+		Produit/
+			fiche_produit.php, boutique.php, categorie.php : 
+			Ces trois fichiers correspondent aux vues des actions (respectivement) affiche($id), afficheAll() et categorie($categorie) de notre entité produit. 
+			Plus tard, ces fichiers seront décomposés, et auront l'extension .html. 
+			(lorsque la méthode render() du Controleur général serait opérationnelle. 
+			
+	
+		layout.html : 
+		Le layout représente la page générale, le template de base. Il peut y avoir plusieurs layout s'il y a plusieurs structures de pages dans notre application (home, contact, mentions légales, inscription...)
+	
+vendor/
+	Manager/
+		Application.php :
+		Lancement de notre application. Cette classe récupère les infos dans l'URL pour instancier le bon controller et lancer la bonne action (méthode).
+		
+	
+	

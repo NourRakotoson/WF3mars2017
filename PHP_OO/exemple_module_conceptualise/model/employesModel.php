@@ -2,16 +2,11 @@
 
 //model/employesModel.php
 
-require __DIR__ . '/../vendor/PDOManager.php';
+require __DIR__ . '/Model.php';
 
-class EmployesModel
+class EmployesModel extends Model
 {
-	private $db; 
 	
-	public function getDb(){
-		$this -> db = PDOManager::getInstance() -> getPDO(); 
-		return $this -> db; 
-	}
 
 	public function getAllEmployes(){
 		$requete = "SELECT * FROM employes";

@@ -1,10 +1,11 @@
 <?php
 //vendor/Entity/Membre.php
 
-namespace Entity;
+namespace Entity; 
 
 class Membre
 {
+	
     private $id_membre;
     private $pseudo;
     private $mdp;
@@ -12,101 +13,116 @@ class Membre
     private $prenom;
     private $email;
     private $civilite;
-    private $ville, $code_postal, $adresse, $statut;
+    private $ville;
+    private $adresse;
+    private $codepostal;
+    private $statut;
+	
+	
+	/**
+	* GETTERS
+	*
+	*/
+	
+    public function getId_membre() {
+        return $this->id_membre;
+    }
+
+    public function getPseudo() {
+        return $this->pseudo;
+    }
     
-    /**
-    * GETTERS
-    *
-    */
-    public function getId_membre(){
-        return $this -> id_membre;
+    public function getMdp() {
+        return $this->mdp;
     }
 
-    public function getPseudo(){
-        return $this -> pseudo;
+    public function getNom()
+    {
+        return $this->nom;
     }
 
-    public function getMdp(){
-        return $this -> mdp;
+    public function getPrenom()
+    {
+        return $this->prenom;
     }
 
-    public function getNom(){
-        return $this -> nom;
+    public function getEmail()
+    {
+        return $this->email;
     }
 
-    public function getPrenom(){
-        return $this -> prenom;
+    public function getCivilite()
+    {
+        return $this->civilite;
     }
 
-    public function getEmail(){
-        return $this -> email;
+    public function getVille()
+    {
+        return $this->ville;
     }
 
-     public function getCivilite(){
-        return $this -> civilite;
+	public function getCodepostal()
+    {
+        return $this->codepostal;
     }
 
-     public function getVille(){
-        return $this -> ville;
+    public function getAdresse()
+    {
+        return $this->adresse;
     }
 
-     public function getCode_postal(){
-        return $this -> code_postal;
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+	
+	    
+	/**
+	* SETTERS
+	*
+	*/
+	
+	public function setId_membre($id_membre) {
+        $this->id_membre = $id_membre;
+    }
+	
+	public function setPseudo($pseudo) {
+        $this->pseudo = $pseudo;
+    }
+	public function setMdp($mdp) {
+        $this->mdp = $mdp;
+    }
+	
+	public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+	
+	public function setPrenom($prenom) {
+        $this->prenom = $prenom;
+    }
+	
+	public function setEmail($email) {
+        $this->email = $email;
+    }
+	public function setCivilite($civilite) {
+        $this->civilite = $civilite; 
+    }
+	
+    public function setVille($ville) {
+        $this->ville = $ville;
     }
 
-     public function getAdresse(){
-        return $this -> adresse;
+	public function setCodepostal($code_postal) {
+        $this->codepostal = $code_postal;
+    }
+	
+	public function setAdresse($adresse) {
+        $this->adresse = $adresse;
     }
 
-    public function getStatut(){
-        return $this -> statut;
+    public function setStatut($statut) {
+        $this->statut = $statut;
     }
 
-    /**
-    * SETTERS
-    *
-    */
-    public function setId_membre($id_membre){
-        $this -> id_membre = $id_membre;
-    }
-
-    public function setPseudo($pseudo){
-        $this -> pseudo = $pseudo;
-    }
-
-    public function setMdp($mdp){
-        $this -> mdp = $mdp;
-    }
-
-    public function setNom($nom){
-        $this -> nom = $nom;
-    }
-
-    public function setPrenom($prenom){
-        $this -> prenom = $prenom;
-    }
-
-    public function setEmail($email){
-        $this -> email = $email;
-    }
-
-    public function setCivilite($civilite){
-        $this -> civilite = $civilite;
-    }
-
-    public function setVille($ville){
-        $this -> ville = $ville;
-    }
-
-    public function setCode_postal($code_postal){
-        $this -> code_postal = $code_postal;
-    }
-
-    public function setAdresse($adresse){
-        $this -> adresse = $adresse;
-    }
-
-    public function setStatut($statut){
-        $this -> statut = $statut;
-    }
 }
