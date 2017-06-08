@@ -1,0 +1,7 @@
+# activation de la réécriture d'URL
+RewriteEngine on
+
+# Si on appelle un fichier qui n'existe pas
+RewriteCond %{REQUEST_FILENAME} !-f
+#...alors on redirige vers index.php (en prod) ou index_dev.php (en dev)
+RewriteRule ^ index_dev.php [QSA,L]

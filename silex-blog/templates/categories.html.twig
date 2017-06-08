@@ -1,0 +1,17 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+        </tr>
+        {% for category in categories %}
+            <tr>
+                <th>{{ category.id }}</th>
+                <th>{{ category.name }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
