@@ -2,22 +2,11 @@
 
 namespace Repository;
 
-use Doctrine\DBAL\Connection;
 use Entity\Category;
 
-class CategoryRepository 
+class CategoryRepository extends RepositoryAbstract
 {
-    /**
-     *
-     * @var Connection
-     */
-    private $db;
-    
-    public function __construct(Connection $db) 
-    {
-        $this->db = $db;
-    }
-    
+  
     public function findAll()
     {
         $dbCategories = $this->db->fetchAll('SELECT * FROM category');

@@ -10,6 +10,8 @@
         <tr>
             <th>Id</th>
             <th>Title</th>
+            <th>Résumé</th>
+            <th>Rubrique</th>
             <th width="200px"></th>
 
         </tr>
@@ -17,6 +19,8 @@
             <tr>
                 <td>{{ article.id }}</td>
                 <td>{{ article.title }}</td>
+                <td>{{ article.shortContent }}</td>
+                <td>{{ article.categoryName }}</td>
                 <td>
                     <a
                         href="{{ path('admin_article_edit', {id: article.id}) }}"
@@ -30,6 +34,10 @@
                     </a>
                 </td>
 
+            </tr>
+        {% else %}
+            <tr>
+                <td coldspan="4" align="center">Aucun résultat</td>
             </tr>
         {% endfor %}
     </table>

@@ -27,12 +27,14 @@ $app
     ->bind('articles')
 ;
 
+$app
+    ->get('/rubrique/{id}', 'index.controller:categorieAction') 
+    ->assert('id', '\d+')
+    ->bind('category')
+;
+
 $app['admin.category.controller'] = function () use ($app) {
     return new CategoryController($app);
-};
-
-$app['admin.article.controller'] = function () use ($app) {
-    return new ArticleController($app);
 };
 
 $app
@@ -51,7 +53,7 @@ $app
 ;
 
 $app
-    ->get(
+    ->match(
             'admin/rubriques/supression/{id}', 
             'admin.category.controller:deleteAction'
     )  
@@ -69,7 +71,9 @@ $app
  * - on remplit la méthode listAction du contrôleur en utilisant ArticleRepository
  * - on crée la vue qui affiche les articles dans un tableau html
  */
-
+$app['admin.article.controller'] = function () use ($app) {
+    return new ArticleController($app);
+};
 
 $app
     ->get('admin/articles', 'admin.article.controller:listAction') 
@@ -82,7 +86,9 @@ $app
             'admin.article.controller:editAction'
     )
     // valeur par défaut pour le paramètre de la route
-    ->value('id', null)  
+    ->value('id', null)
+    // si la valeur est précisée, ce doit être un nombre
+    ->assert('id', '\d+')
     ->bind('admin_article_edit')
 ;
 
