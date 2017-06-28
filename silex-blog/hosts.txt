@@ -1,0 +1,53 @@
+C://XAMPP/APACHE/conf/extra/httpd-vhosts.conf
+
+<VirtualHost *:80>
+    # Nome de domaine du site
+    ServerName silex-blog.local
+    # Alias de nom de domaine (par exemple sous-domaine)
+    ServerAlias www.silex-blog.local
+    # Répertoire servant de racine web pour le site
+    DocumentRoot "C:\Users\Etudiant\NourRakotoson\silex-blog\web"
+    # Configuration pour un répertoire, on peut y mettre ce que l'on met 
+    # dans un fichier .htaccess et ne plus avoir besoin de ce fichier
+    <Directory C:\Users\Etudiant\NourRakotoson\silex-blog\web>
+        # Redirection vers index_dev.php (version courte de RewriteRule)
+        # que l'on trouve dans un fichier ht.access
+        FallbackResource index_dev.php
+    </Directory>
+</VirtualHost>
+
+# pour rappel fichier ht.access : 
+# activation de la réécriture d'URL
+# RewriteEngine on (ligne à décommenter)
+
+# Si on appelle un fichier qui n'existe pas
+# RewriteCond %{REQUEST_FILENAME} !-f (ligne à décommenter)
+#...alors on redirige vers index.php (en prod) ou index_dev.php (en dev)
+# RewriteRule ^ index_dev.php [QSA,L] (ligne à décommenter)
+
+
+C://Windows/System32/drivers/etc/hosts
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+127.0.0.1	localhost 
+127.0.0.1	silex-blog.local 
+127.0.0.1	www.silex-blog.local
+#	::1             localhost 
+

@@ -1,6 +1,7 @@
 <?php
 
 use Controller\IndexController;
+use Controller\UserController;
 use Controller\Admin\CategoryController;
 use Controller\Admin\ArticleController;
 use Symfony\Component\HttpFoundation\Request;
@@ -8,10 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
+/* Front */
 $app['index.controller'] = function () use ($app) {
     return new IndexController($app);
 };
-
+ 
 $app
     ->get('/', 'index.controller:indexAction') 
     ->bind('homepage')
@@ -33,18 +35,60 @@ $app
     ->bind('category')
 ;
 
-$app['admin.category.controller'] = function () use ($app) {
-    return new CategoryController($app);
+/* Utilisateurs */
+$app['user.controller'] = function () use ($app) {
+    return new UserController($app);
 };
 
 $app
-    ->get('admin/rubriques', 'admin.category.controller:listAction') 
-    ->bind('admin_categories')
+    ->match(
+            'utilisateur/inscription', 
+            'user.controller:registerAction'
+    ) 
+    ->bind('register')
 ;
 
 $app
     ->match(
-            'admin/rubriques/edition/{id}', 
+            'utilisateur/connexion', 
+            'user.controller:loginAction'
+    ) 
+    ->bind('login')
+;
+
+$app
+    ->get(
+        'utilisateur/deconnexion',
+        'user.controller:logoutAction'
+    )
+    ->bind('logout')
+;
+
+/* Admin */
+$app['admin.category.controller'] = function () use ($app) {
+    return new CategoryController($app);
+};
+
+// crée un sous-ensemble de routes
+$admin = $app['controllers_factory'];
+
+$admin->before(function () use ($app) {
+    if (!$app['user.manager']->isAdmin()) { // si un admin n'est pas connecté
+        $app->abort(403, 'Accès refusé'); // HTTP 403 Forbidden
+    }
+});
+
+// toutes les routes du sous-ensemble commencerotn par /admin
+$app->mount('/admin', $admin);
+
+$admin
+    ->get('rubriques', 'admin.category.controller:listAction') 
+    ->bind('admin_categories')
+;
+
+$admin
+    ->match(
+            '/rubriques/edition/{id}', 
             'admin.category.controller:editAction'
     )
     // valeur par défaut pour le paramètre de la route
@@ -52,9 +96,9 @@ $app
     ->bind('admin_category_edit')
 ;
 
-$app
+$admin
     ->match(
-            'admin/rubriques/supression/{id}', 
+            '/rubriques/supression/{id}', 
             'admin.category.controller:deleteAction'
     )  
     ->bind('admin_category_delete')
@@ -75,14 +119,14 @@ $app['admin.article.controller'] = function () use ($app) {
     return new ArticleController($app);
 };
 
-$app
-    ->get('admin/articles', 'admin.article.controller:listAction') 
+$admin
+    ->get('/articles', 'admin.article.controller:listAction') 
     ->bind('admin_articles')
 ;
 
-$app
+$admin
     ->match(
-            'admin/articles/edition/{id}', 
+            '/articles/edition/{id}', 
             'admin.article.controller:editAction'
     )
     // valeur par défaut pour le paramètre de la route
@@ -92,9 +136,9 @@ $app
     ->bind('admin_article_edit')
 ;
 
-$app
+$admin
     ->get(
-            'admin/articles/supression/{id}', 
+            '/articles/supression/{id}', 
             'admin.article.controller:deleteAction'
     )  
     ->bind('admin_article_delete')
